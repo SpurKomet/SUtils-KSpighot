@@ -3,4 +3,4 @@
 
 kein Support!!!
 
-Ich Release die Plugins, da ich keinen Grund dagegen sehr.
+Ich Release das Plugin, da ich keinen Grund dagegen sehr.
