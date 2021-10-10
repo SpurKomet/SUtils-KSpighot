@@ -1,4 +1,4 @@
-main: de.spurkomet.sutils.InternalMainClass
+main: net.spurkomet.sutils.InternalMainClass
 name: SUtils
 version: 1.4.1
 description: SUtils
