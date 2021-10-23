@@ -1,13 +1,12 @@
 package net.spurkomet.sutils
 
-import net.spurkomet.sutils.listener.joinListener
 import net.spurkomet.sutils.listener.mainListener
-import net.spurkomet.sutils.listener.quitListener
 import net.spurkomet.sutils.utils.settingsComand
 import net.axay.kspigot.chat.col
 import net.axay.kspigot.commands.command
 import net.axay.kspigot.commands.register
 import net.axay.kspigot.main.KSpigot
+import net.spurkomet.sutils.utils.soupHealing
 
 class InternalMainClass : KSpigot() {
 
@@ -20,15 +19,14 @@ class InternalMainClass : KSpigot() {
         INSTANCE = this
     }
     override fun startup() {
-        joinListener()
         mainListener()
-        quitListener()
         settingsComand.register()
+        soupHealing()
     }
 
     override fun shutdown() { }
 }
-fun getPrefix(): String{
+fun prefix(): String{
     return "${col("dark_gray")}[${col("dark_aqua")}SUtils${col("dark_gray")}] ${col("white")}"
 }
 /*TODO
