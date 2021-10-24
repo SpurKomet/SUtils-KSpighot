@@ -52,7 +52,7 @@ fun runTimer(){
 fun barTimer(){
     if (!isRun){
         onlinePlayers.forEach {
-            it.actionBar("${col("red")}${col("italic")}Der Timer ist Pausiert.")
+            it.actionBar("${col("gray")}${col("italic")}${if (h < 10)"0$h" else h}:${if (min < 10)"0$min" else min}:${if (sec < 10)"0$sec" else sec}")
             it.addPotionEffect(PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 40, 5, false,false,false))
         }
     }
