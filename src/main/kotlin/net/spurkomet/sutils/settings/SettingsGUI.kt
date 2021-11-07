@@ -2,6 +2,7 @@ package net.spurkomet.sutils.settings
 
 import net.axay.kspigot.chat.col
 import net.axay.kspigot.chat.sendMessage
+import net.axay.kspigot.extensions.onlinePlayers
 import net.axay.kspigot.gui.GUIType
 import net.axay.kspigot.gui.Slots
 import net.axay.kspigot.gui.kSpigotGUI
@@ -83,7 +84,7 @@ class SettingsGUI {
             //--------------- soup.heal ----------------------
             this.button(Slots.RowOneSlotThree, SettingsDisplayItem.soup.heal()) {
                 if (it.bukkitEvent.click.isLeftClick) {
-                    if(soupHeal < 10) {
+                    if(soupHeal < 20) {
                         soupHeal++
                         it.player.sendMessage("${prefixs.soup()}${col("gray")}Heal ${col("white")}wurde auf ${col("dark_red")}$soupHeal ${col("white")}gesetzt.")
                     }

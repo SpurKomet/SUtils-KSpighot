@@ -12,7 +12,7 @@ object prefixs{
 }
 object usages{
     fun timer(): String{
-        return "${prefix()}Verwendung: ${col("gray")}/timer ${col("blue")}resume; pause; reset"
+        return "${prefix()}Verwendung: ${col("gray")}/timer ${col("blue")}resume ${col("white")}| ${col("blue")}pause ${col("white")}| ${col("blue")}reset"
     }
 }
 

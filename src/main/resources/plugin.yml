@@ -1,8 +1,0 @@
-main: net.spurkomet.sutils.InternalMainClass
-name: SUtils
-version: 1.4.1
-description: SUtils
-api-version: 1.17
-author: SpurKomet
-libraries:
-  - "net.axay:kspigot:1.17.4"

@@ -1,7 +1,7 @@
 main: net.spurkomet.sutils.InternalMainClass
 name: SUtils
 version: 1.4.1
-description: SUtils
+description: SUtilplugin for my MCServernetzwerk
 api-version: 1.17
 author: SpurKomet
 libraries:

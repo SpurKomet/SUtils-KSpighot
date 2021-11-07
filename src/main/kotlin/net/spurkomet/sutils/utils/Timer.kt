@@ -1,6 +1,7 @@
 package net.spurkomet.sutils.utils
 
 import net.axay.kspigot.chat.col
+import net.axay.kspigot.event.listen
 import net.axay.kspigot.extensions.broadcast
 import net.axay.kspigot.extensions.bukkit.actionBar
 import net.axay.kspigot.extensions.onlinePlayers
@@ -16,12 +17,13 @@ import net.spurkomet.sutils.settings.settings.timer.isRun
 import net.spurkomet.sutils.settings.settings.timer.timer
 import org.bukkit.Effect
 import org.bukkit.GameMode
+import org.bukkit.entity.EntityType
+import org.bukkit.event.entity.EntityDamageEvent
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
 import kotlin.reflect.jvm.internal.impl.builtins.jvm.JvmBuiltIns
 
 fun runTimer(){
-    calcToSec()
     task(
         true,
         20,
@@ -52,13 +54,13 @@ fun runTimer(){
 fun barTimer(){
     if (!isRun){
         onlinePlayers.forEach {
-            it.actionBar("${col("gray")}${col("italic")}${if (h < 10)"0$h" else h}:${if (min < 10)"0$min" else min}:${if (sec < 10)"0$sec" else sec}")
-            it.addPotionEffect(PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 40, 5, false,false,false))
+            it.actionBar("${col("aqua")}${col("italic")}${if (h < 10)"0$h" else h}:${if (min < 10)"0$min" else min}:${if (sec < 10)"0$sec" else sec} (frozed)")
         }
     }
     else{
         onlinePlayers.forEach {
             it.actionBar("${col("black")}${if (h < 10)"0$h" else h}:${if (min < 10)"0$min" else min}:${if (sec < 10)"0$sec" else sec}")
+
         }
     }
 }

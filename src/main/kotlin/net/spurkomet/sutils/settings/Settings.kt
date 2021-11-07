@@ -2,10 +2,7 @@ package net.spurkomet.sutils.settings
 
 object settings {
     var damageIndicator = false
-    var position = false
-    var move = false
     var gravestone = false
-    var backpack = false
 
     object timer{
         var countdown = false
@@ -24,5 +21,15 @@ object settings {
         var heal = 4
         var food = 5
         var sateration = 3
+    }
+    object position{
+        var position = false
+        var move = false
+        var positions = ArrayList<String>()
+    }
+    object backpack{
+        var backpack = false
+        var slots = 27 //vielfacher von 9
+        var global = true
     }
 }

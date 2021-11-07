@@ -1,11 +1,10 @@
 package net.spurkomet.sutils
 
 import net.spurkomet.sutils.listener.mainListener
-import net.spurkomet.sutils.utils.settingsComand
 import net.axay.kspigot.chat.col
-import net.axay.kspigot.commands.command
 import net.axay.kspigot.commands.register
 import net.axay.kspigot.main.KSpigot
+import net.spurkomet.sutils.utils.Commands
 import net.spurkomet.sutils.utils.soupHealing
 
 class InternalMainClass : KSpigot() {
@@ -19,8 +18,8 @@ class InternalMainClass : KSpigot() {
         INSTANCE = this
     }
     override fun startup() {
+        Commands()
         mainListener()
-        settingsComand.register()
         soupHealing()
     }
 
@@ -34,4 +33,8 @@ InvSee(nur anschauen)
 Settings
     - datei
 Backpack
+Timer:
+- kein blockdamige(bei explosion) bei pause
+- autopause bei alle disconackt
+- kein Hunger bei pause
  */

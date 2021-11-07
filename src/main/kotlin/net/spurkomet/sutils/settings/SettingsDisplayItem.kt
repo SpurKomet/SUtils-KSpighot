@@ -77,7 +77,7 @@ object SettingsDisplayItem {
             return itemStack(Material.ENCHANTED_GOLDEN_APPLE) {
                 amount = soupHeal
                 meta {
-                    name = "${col("white")}Heal"
+                    name = "${col("white")}Heal (in HP)"
                     addLore {
                         +"Right Click to Up"
                         +"Left Click to Down"
