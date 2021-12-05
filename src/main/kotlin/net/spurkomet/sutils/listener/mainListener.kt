@@ -6,10 +6,12 @@ import net.axay.kspigot.event.listen
 import net.axay.kspigot.extensions.broadcast
 import net.axay.kspigot.extensions.onlinePlayers
 import net.kyori.adventure.text.Component
+import net.spurkomet.sutils.colors
 import net.spurkomet.sutils.prefix
 import net.spurkomet.sutils.settings.settings
 import org.bukkit.GameMode
 import org.bukkit.entity.EntityType
+import org.bukkit.entity.Player
 import org.bukkit.event.entity.EntityDamageByEntityEvent
 import org.bukkit.event.entity.EntityDamageEvent
 import org.bukkit.event.entity.PlayerDeathEvent
@@ -21,20 +23,20 @@ import kotlin.math.roundToLong
 
 fun mainListener() {
     listen<PlayerJoinEvent> {
-        it.joinMessage(Component.text("${col("dark_gray")}[${col("dark_green")}+${col("dark_gray")}] ${col(if (it.player.isOp) "aqua" else "white")}${it.player.name}"))
+        it.joinMessage(Component.text("${col("dark_gray")}[${col("dark_green")}+${col("dark_gray")}] ${col(if (it.player.isOp) colors.admin else "white")}${it.player.name}"))
 
         /*it.player.title( "${col("yellow")}Willkommen! ${if(it.player.isOp) col("aqua") else col("white")}${it.player.name}",
             "${col ("dark_aqua")}SUtils Server | powered by ${col("aqua")}Kot${col("white")}lin",
             4, 40, 10)*/
     }
     listen<PlayerQuitEvent> {
-        it.quitMessage(Component.text("${col("dark_gray")}[${col("dark_red")}-${col("dark_gray")}] ${col(if (it.player.isOp) "aqua" else "withe")}${it.player.name}"))
+        it.quitMessage(Component.text("${col("dark_gray")}[${col("dark_red")}-${col("dark_gray")}] ${col(if (it.player.isOp) colors.admin else "withe")}${it.player.name}"))
         if (onlinePlayers.isEmpty()){
             settings.timer.isRun = false
         }
     }
     listen<PlayerChatEvent> {
-        it.format = "${col(if (it.player.isOp) "aqua" else "white")}%1\$s${col("dark_gray")} | ${col("white")}%2\$s"
+        it.format = "${col(if (it.player.isOp) colors.admin else "white")}%1\$s${col("dark_gray")} | ${col("white")}%2\$s"
     }
     listen<EntityDamageEvent> {
         if (settings.timer.isRun || !settings.timer.timer) {
@@ -45,9 +47,15 @@ fun mainListener() {
             }
         }
         //----- Timer -----
-        if(it.entity.type == EntityType.PLAYER && !settings.timer.isRun && settings.timer.timer){it.isCancelled = true }
-        if(it.entity.type == EntityType.PLAYER && settings.timer.isRun){it.isCancelled = false }
-
+        if (it.entity.type == EntityType.PLAYER && !settings.timer.isRun && settings.timer.timer) {
+            it.isCancelled = true
+        }
+        if (it.entity.type == EntityType.PLAYER && settings.timer.isRun) {
+            it.isCancelled = false
+        }
+        if (settings.troll.oneHit) {
+            it.damage = 2000000000.0
+        }
     }
 
     listen<EntityDamageByEntityEvent> {

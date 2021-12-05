@@ -26,6 +26,10 @@ class Commands{
         }
         literal("resume"){
             runs{
+                if (!settings.timer.timer){
+                    settings.timer.timer = true
+                    runTimer()
+                }
                 settings.timer.isRun = true
             }
         }
@@ -52,6 +56,19 @@ class Commands{
         literal("move") {
 
 
+        }
+    }
+    val trollCommand = command("troll"){
+    }
+    val resetCommand = command("resetandrestart"){
+        runs{
+            this.player.sendMessage(usages.timer())
+        }
+        literal("true"){
+            reset(true)
+        }
+        literal("false"){
+            reset(false)
         }
     }
 }

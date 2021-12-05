@@ -21,6 +21,13 @@ import net.spurkomet.sutils.settings.settings.soup.food as soupFood
 import net.spurkomet.sutils.settings.settings.soup.heal as soupHeal
 
 object SettingsDisplayItem {
+    val back = itemStack(Material.IRON_SWORD) {
+        amount = 1
+        meta {
+            name = "${col("dark_red")}<- ${col("gray")}Settings"
+            flag(ItemFlag.HIDE_ATTRIBUTES)
+        }
+    }
     object generel{
         fun damageIndicator(): ItemStack{
             return  itemStack(Material.IRON_SWORD) {

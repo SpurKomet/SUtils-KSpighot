@@ -4,6 +4,7 @@ import net.spurkomet.sutils.listener.mainListener
 import net.axay.kspigot.chat.col
 import net.axay.kspigot.commands.register
 import net.axay.kspigot.main.KSpigot
+import net.spurkomet.sutils.settings.settings
 import net.spurkomet.sutils.utils.Commands
 import net.spurkomet.sutils.utils.soupHealing
 
@@ -16,6 +17,7 @@ class InternalMainClass : KSpigot() {
 
     override fun load() {
         INSTANCE = this
+        settings.load()
     }
     override fun startup() {
         Commands()
@@ -23,7 +25,9 @@ class InternalMainClass : KSpigot() {
         soupHealing()
     }
 
-    override fun shutdown() { }
+    override fun shutdown() {
+        settings.save()
+    }
 }
 fun prefix(): String{
     return "${col("dark_gray")}[${col("dark_aqua")}SUtils${col("dark_gray")}] ${col("white")}"
@@ -34,6 +38,7 @@ Settings
     - datei
 Backpack
 Timer:
+- shift klick = 10er schritt
 - kein blockdamige(bei explosion) bei pause
 - autopause bei alle disconackt
 - kein Hunger bei pause

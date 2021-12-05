@@ -63,6 +63,9 @@ fun barTimer(){
 
         }
     }
+    if (!timer){
+        onlinePlayers.forEach{it.actionBar("")}
+    }
 }
 fun calcToSec(){
     time = ((h*3600)+(min*60)+sec)

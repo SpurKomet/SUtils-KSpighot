@@ -1,6 +1,13 @@
 package net.spurkomet.sutils.settings
 
+import org.bukkit.configuration.file.YamlConfiguration
+import java.io.File
+
 object settings {
+    val dir = File("./plugins/SUtils/")
+    val file = File(dir, "config.yml")
+    var config = YamlConfiguration.loadConfiguration(file)
+
     var damageIndicator = false
     var gravestone = false
 
@@ -31,5 +38,14 @@ object settings {
         var backpack = false
         var slots = 27 //vielfacher von 9
         var global = true
+    }
+    object troll{
+        var oneHit = false
+    }
+    fun save(){
+        //config.set("settungs.alowNether", alowNether)
+    }
+    fun load(){
+        //if (config.contains("settungs.alowNether")){alowNether = config.getBoolean("settungs.alowNether")}
     }
 }

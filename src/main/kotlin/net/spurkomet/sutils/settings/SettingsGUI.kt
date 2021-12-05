@@ -149,15 +149,7 @@ class SettingsGUI {
                 }
                 it.bukkitEvent.currentItem = SettingsDisplayItem.soup.saturation()
             }
-            this.pageChanger(Slots.RowOneSlotNine,
-                itemStack(Material.RED_STAINED_GLASS_PANE) {
-                    amount = 1
-                    meta {
-                        name = "${col("dark_red")}<- ${col("gray")}Settings"
-                        flag(ItemFlag.HIDE_ATTRIBUTES)
-                    }
-                },
-                0){
+            this.pageChanger(Slots.RowOneSlotNine, SettingsDisplayItem.back, 0){
                 //it.player.sendMessage("settings")
             }
         }
