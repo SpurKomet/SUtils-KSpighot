@@ -5,4 +5,4 @@ description: SUtilplugin for my MCServernetzwerk
 api-version: 1.17
 author: SpurKomet
 libraries:
-  - "net.axay:kspigot:1.17.4"
+  - "net.axay:kspigot:1.18.0"

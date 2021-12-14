@@ -1,34 +1,31 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.21"
+    kotlin("jvm") version "1.6.0"
+    id("io.papermc.paperweight.userdev") version "1.3.1"
 }
 
+val mcVersion = "1.18"
+val isSnapshot = false
+
 group = "net.spurkomet"
-version = "1.0-SNAPSHOT"
+version = "$mcVersion${if(isSnapshot){"-SNAPSHOT"}else{""}}"
 
 repositories {
     mavenCentral()
-    maven("https://papermc.io/repo/repository/maven-public/")
-    maven("https://repo.codemc.io/repository/maven-snapshots/")
-    maven("https://repo.codemc.io/repository/maven-public/")
-    maven("https://libraries.minecraft.net")
 }
 
 dependencies {
-    implementation(kotlin("reflect"))
-    compileOnly("io.papermc.paper:paper-api:1.17-R0.1-SNAPSHOT")
-    compileOnly("com.mojang:brigadier:1.0.18")
-    implementation("net.axay:kspigot:1.17.4")
+    paperDevBundle("1.18.1-R0.1-SNAPSHOT")
+    implementation("net.axay:kspigot:1.18.0")
 }
-
 
 tasks {
     compileJava {
-        options.release.set(16)
         options.encoding = "UTF-8"
+        options.release.set(17)
     }
     compileKotlin {
-        kotlinOptions.jvmTarget = "16"
+        kotlinOptions.jvmTarget = "17"
     }
 }

@@ -2,8 +2,8 @@ package net.spurkomet.sutils
 
 import net.spurkomet.sutils.listener.mainListener
 import net.axay.kspigot.chat.col
-import net.axay.kspigot.commands.register
 import net.axay.kspigot.main.KSpigot
+import net.spurkomet.sutils.settings.Config
 import net.spurkomet.sutils.settings.settings
 import net.spurkomet.sutils.utils.Commands
 import net.spurkomet.sutils.utils.soupHealing
@@ -17,6 +17,7 @@ class InternalMainClass : KSpigot() {
 
     override fun load() {
         INSTANCE = this
+        var config = Config()
         settings.load()
     }
     override fun startup() {
