@@ -1,8 +1,11 @@
-main: net.spurkomet.sutils.InternalMainClass
 name: SUtils
-version: 1.4.1
-description: SUtilplugin for my MCServernetzwerk
-api-version: 1.17
-author: SpurKomet
+version: 1.19
+main: de.spurkomet.sutils.InternalMainClass
+description: Utils Plugin von SpurKomet
+authors:
+ - SpurKomet
 libraries:
-  - "net.axay:kspigot:1.18.0"
+ - net.axay:kspigot:1.19.0
+ - org.apache.httpcomponents:httpclient:4.5.13
+ - org.apache.httpcomponents:httpmime:4.5.13
+api-version: 1.19
