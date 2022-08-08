@@ -1,18 +1,14 @@
 package de.spurkomet.sutils.utils
 
-import net.axay.kspigot.chat.col
 import net.axay.kspigot.event.listen
-import net.axay.kspigot.extensions.broadcast
-import net.axay.kspigot.items.itemStack
 import org.bukkit.Material
 import org.bukkit.event.block.Action
 import org.bukkit.event.player.PlayerInteractEvent
-import de.spurkomet.sutils.settings.settings.soup.soup
-import de.spurkomet.sutils.settings.settings.soup.heal
-import de.spurkomet.sutils.settings.settings.soup.food
-import de.spurkomet.sutils.settings.settings.soup.sateration
+import de.spurkomet.sutils.settings.global.settings.soup.soup
+import de.spurkomet.sutils.settings.global.settings.soup.heal
+import de.spurkomet.sutils.settings.global.settings.soup.food
+import de.spurkomet.sutils.settings.global.settings.soup.sateration
 import net.axay.kspigot.extensions.bukkit.getHandItem
-import net.axay.kspigot.extensions.bukkit.heal
 import org.bukkit.GameMode
 import org.bukkit.attribute.Attribute
 import org.bukkit.inventory.EquipmentSlot

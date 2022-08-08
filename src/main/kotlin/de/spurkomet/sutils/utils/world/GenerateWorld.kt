@@ -1,8 +1,6 @@
 package de.spurkomet.sutils.utils.world
 
-import de.spurkomet.sutils.settings.settings
 import org.bukkit.Bukkit
-import org.bukkit.World
 import org.bukkit.WorldCreator
 
 

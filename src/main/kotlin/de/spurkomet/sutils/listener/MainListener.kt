@@ -1,6 +1,6 @@
 package de.spurkomet.sutils.listener
 
-import de.spurkomet.sutils.settings.settings.damageIndicator
+import de.spurkomet.sutils.settings.global.settings.damageIndicator
 import net.axay.kspigot.chat.*
 import net.axay.kspigot.event.listen
 import net.axay.kspigot.extensions.broadcast
@@ -8,13 +8,17 @@ import net.axay.kspigot.extensions.onlinePlayers
 import net.kyori.adventure.text.Component
 import de.spurkomet.sutils.colors
 import de.spurkomet.sutils.prefix
-import de.spurkomet.sutils.settings.settings
+import de.spurkomet.sutils.settings.global.settings
+import de.spurkomet.sutils.settings.noneglobal.nonGlobalSettings.addPlayer
+import net.axay.kspigot.sound.sound
 import net.kyori.adventure.text.format.TextColor
 import org.bukkit.GameMode
+import org.bukkit.Sound
 import org.bukkit.entity.EntityType
-import org.bukkit.entity.Player
+import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.event.entity.EntityDamageByEntityEvent
 import org.bukkit.event.entity.EntityDamageEvent
+import org.bukkit.event.entity.EntityExplodeEvent
 import org.bukkit.event.entity.PlayerDeathEvent
 import org.bukkit.event.player.PlayerChatEvent
 import org.bukkit.event.player.PlayerJoinEvent
@@ -22,10 +26,12 @@ import org.bukkit.event.player.PlayerQuitEvent
 import java.math.RoundingMode
 import kotlin.math.roundToLong
 
+
 fun mainListener() {
     listen<PlayerJoinEvent> {
         it.joinMessage(Component.text("${col("dark_gray")}[${col("dark_green")}+${col("dark_gray")}] ${col(if (it.player.isOp) colors.admin else "white")}${it.player.name}"))
 
+        it.player.addPlayer()
         /*it.player.title( "${col("yellow")}Willkommen! ${if(it.player.isOp) col("aqua") else col("white")}${it.player.name}",
             "${col ("dark_aqua")}SUtils Server | powered by ${col("aqua")}Kot${col("white")}lin",
             4, 40, 10)*/
@@ -112,6 +118,11 @@ fun mainListener() {
             settings.timer.isRun = false
             onlinePlayers.forEach { it.gameMode = GameMode.SPECTATOR }
             broadcast("${col("red")}GameOver ${col("green")}- ${it.entity.name} died!")
+        }
+    }
+    listen<EntityExplodeEvent> {
+        it.blockList().forEach{block->
+            it.blockList().remove(block)
         }
     }
 }

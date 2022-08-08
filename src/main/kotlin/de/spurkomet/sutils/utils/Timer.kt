@@ -1,26 +1,19 @@
 package de.spurkomet.sutils.utils
 
 import net.axay.kspigot.chat.col
-import net.axay.kspigot.event.listen
 import net.axay.kspigot.extensions.broadcast
 import net.axay.kspigot.extensions.bukkit.actionBar
 import net.axay.kspigot.extensions.onlinePlayers
 import net.axay.kspigot.runnables.task
-import de.spurkomet.sutils.prefix
-import de.spurkomet.sutils.settings.settings
-import de.spurkomet.sutils.settings.settings.timer.countdown
-import de.spurkomet.sutils.settings.settings.timer.time.time
-import de.spurkomet.sutils.settings.settings.timer.time.sec
-import de.spurkomet.sutils.settings.settings.timer.time.min
-import de.spurkomet.sutils.settings.settings.timer.time.h
-import de.spurkomet.sutils.settings.settings.timer.isRun
-import de.spurkomet.sutils.settings.settings.timer.timer
-import org.bukkit.Effect
+import de.spurkomet.sutils.settings.global.settings
+import de.spurkomet.sutils.settings.global.settings.timer.countdown
+import de.spurkomet.sutils.settings.global.settings.timer.time.time
+import de.spurkomet.sutils.settings.global.settings.timer.time.sec
+import de.spurkomet.sutils.settings.global.settings.timer.time.min
+import de.spurkomet.sutils.settings.global.settings.timer.time.h
+import de.spurkomet.sutils.settings.global.settings.timer.isRun
+import de.spurkomet.sutils.settings.global.settings.timer.timer
 import org.bukkit.GameMode
-import org.bukkit.entity.EntityType
-import org.bukkit.event.entity.EntityDamageEvent
-import org.bukkit.potion.PotionEffect
-import org.bukkit.potion.PotionEffectType
 
 fun runTimer(){
     task(

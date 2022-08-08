@@ -1,7 +1,7 @@
 package de.spurkomet.sutils.utils
 
 import de.spurkomet.sutils.prefix
-import de.spurkomet.sutils.settings.settings
+import de.spurkomet.sutils.settings.global.settings
 import org.bukkit.entity.Player
 
 fun Player.backpack(){

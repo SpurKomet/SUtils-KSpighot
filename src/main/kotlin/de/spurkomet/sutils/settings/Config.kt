@@ -1,9 +1,9 @@
-package de.spurkomet.sutils.settings
+package de.spurkomet.sutils.settings.global
 
 import de.spurkomet.sutils.InternalMainClass
-import de.spurkomet.sutils.settings.settings.configuration
-import de.spurkomet.sutils.settings.settings.dir
-import de.spurkomet.sutils.settings.settings.file
+import de.spurkomet.sutils.settings.global.settings.configuration
+import de.spurkomet.sutils.settings.global.settings.dir
+import de.spurkomet.sutils.settings.global.settings.file
 import java.io.IOException
 
 fun Config(){

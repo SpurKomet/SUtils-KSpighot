@@ -31,6 +31,10 @@ dependencies {
     compileOnly("com.comphenix.protocol:ProtocolLib:4.7.0")
     compileOnly("LibsDisguises:LibsDisguises:10.0.28")
     compileOnly("io.papermc.paper:paper-api:${mcVersion}-R0.1-SNAPSHOT")
+
+    implementation(group = "com.github.twitch4j", name = "twitch4j", version = "1.10.0")
+    // or using it into compile
+    api(group = "com.github.twitch4j", name = "twitch4j", version = "1.10.0")
 }
 
 tasks {
@@ -39,10 +43,10 @@ tasks {
     }
     compileJava {
         options.encoding = "UTF-8"
-        options.release.set(18)
+        options.release.set(17)
     }
     compileKotlin {
-        kotlinOptions.jvmTarget = "18"
+        kotlinOptions.jvmTarget = "17"
     }
 }
 bukkit {

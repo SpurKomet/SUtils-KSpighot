@@ -1,8 +1,6 @@
-package de.spurkomet.sutils.settings
+package de.spurkomet.sutils.settings.global
 
 import net.axay.kspigot.chat.col
-import net.axay.kspigot.chat.sendMessage
-import net.axay.kspigot.extensions.onlinePlayers
 import net.axay.kspigot.gui.GUIType
 import net.axay.kspigot.gui.Slots
 import net.axay.kspigot.gui.kSpigotGUI
@@ -11,22 +9,24 @@ import org.bukkit.Material
 import org.bukkit.inventory.ItemFlag
 import de.spurkomet.sutils.prefix
 import de.spurkomet.sutils.prefixs
-import org.bukkit.potion.PotionType
+import de.spurkomet.sutils.settings.global.settings.betterMinecraft.noCreeperBlockDamage
 
-import de.spurkomet.sutils.settings.settings.damageIndicator
+import de.spurkomet.sutils.settings.global.settings.damageIndicator
 import de.spurkomet.sutils.utils.calcToSec
 import de.spurkomet.sutils.utils.runTimer
+import de.spurkomet.sutils.utils.world.NoBlockDistroy
+import net.axay.kspigot.event.register
+import net.axay.kspigot.event.unregister
 import net.kyori.adventure.text.Component
-import de.spurkomet.sutils.settings.settings.timer.timer as timerTimer
-import de.spurkomet.sutils.settings.settings.timer.time.time as timerTime
-import de.spurkomet.sutils.settings.settings.timer.time.sec as timerSec
-import de.spurkomet.sutils.settings.settings.timer.time.min as timerMin
-import de.spurkomet.sutils.settings.settings.timer.time.h as timerH
-import de.spurkomet.sutils.settings.settings.timer.countdown as timerCountdown
-import de.spurkomet.sutils.settings.settings.soup.soup as soupSoup
-import de.spurkomet.sutils.settings.settings.soup.sateration as soupSaturation
-import de.spurkomet.sutils.settings.settings.soup.food as soupFood
-import de.spurkomet.sutils.settings.settings.soup.heal as soupHeal
+import de.spurkomet.sutils.settings.global.settings.timer.timer as timerTimer
+import de.spurkomet.sutils.settings.global.settings.timer.time.sec as timerSec
+import de.spurkomet.sutils.settings.global.settings.timer.time.min as timerMin
+import de.spurkomet.sutils.settings.global.settings.timer.time.h as timerH
+import de.spurkomet.sutils.settings.global.settings.timer.countdown as timerCountdown
+import de.spurkomet.sutils.settings.global.settings.soup.soup as soupSoup
+import de.spurkomet.sutils.settings.global.settings.soup.sateration as soupSaturation
+import de.spurkomet.sutils.settings.global.settings.soup.food as soupFood
+import de.spurkomet.sutils.settings.global.settings.soup.heal as soupHeal
 
 class SettingsGUI {
     val gui = kSpigotGUI(GUIType.ONE_BY_NINE) {
@@ -59,6 +59,26 @@ class SettingsGUI {
                 settings.timer.isRun = false
             }
             this.pageChanger(Slots.RowOneSlotFour, SettingsDisplayItem.generel.backpack(),3, null){
+            }
+            this.button(Slots.RowOneSlotFour, SettingsDisplayItem.generel.noCreeper()) {
+                if (!noCreeperBlockDamage) {
+                    noCreeperBlockDamage = true
+                    NoBlockDistroy().listener.register()
+                    it.player.sendMessage(
+                        "${prefix()}${col("gray")}Creeper Block Damage " +
+                                "${col("white")}wurde " +
+                                "${col("red")}deaktiviert${col("white")}."
+                    )
+                } else {
+                    noCreeperBlockDamage = false
+                    NoBlockDistroy().listener.unregister()
+                    it.player.sendMessage(
+                        "${prefix()}${col("gray")}Creeper Block Damage " +
+                                "${col("white")}wurde " +
+                                "${col("green")}aktiviert${col("white")}."
+                    )
+                }
+                it.bukkitEvent.currentItem = SettingsDisplayItem.generel.noCreeper()
             }
             //this.nextPage(Slots.CornerBottomLeft, itemStack(Material.MAGENTA_BED){meta{ name="page" }})
         }

@@ -1,6 +1,7 @@
 package de.spurkomet.sutils
 
 import net.axay.kspigot.chat.col
+import de.spurkomet.sutils.prefix
 
 object prefixs{
     fun timer(): String{

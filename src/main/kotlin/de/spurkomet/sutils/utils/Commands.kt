@@ -1,14 +1,16 @@
 package de.spurkomet.sutils.utils
 
+import com.github.twitch4j.helix.TwitchHelixBuilder
 import com.mojang.brigadier.arguments.StringArgumentType
 import de.spurkomet.sutils.prefix
-import de.spurkomet.sutils.settings.SettingsGUI
-import de.spurkomet.sutils.settings.settings
+import de.spurkomet.sutils.settings.global.SettingsGUI
+import de.spurkomet.sutils.settings.global.settings
 import de.spurkomet.sutils.usages
 import de.spurkomet.sutils.utils.admintools.placeBeacon
 import de.spurkomet.sutils.utils.world.reset
 import net.axay.kspigot.chat.col
 import net.axay.kspigot.commands.*
+import net.axay.kspigot.extensions.broadcast
 import net.axay.kspigot.gui.*
 import net.axay.kspigot.items.flag
 import net.axay.kspigot.items.itemStack
@@ -126,6 +128,12 @@ class Commands{
             private boolean hardcore = false;*/
         }
     }
+    val tttCommand = command("fs"){
+        runs {
+            broadcast(this.player.flySpeed.toString())
+            broadcast(this.player.walkSpeed.toString())
+        }
+    }
     /*val musicCommand = command("musik"){
         literal("play"){
             argument("Lied", StringArgumentType.string()){
@@ -138,6 +146,15 @@ class Commands{
             }
         }
     }*/
+
+    val twitch = command("twitch"){
+        runs {
+            val client = TwitchHelixBuilder.builder()
+                .withClientId("q6jk9x099tfnx50vzmh1xod8413otl")
+                .withClientSecret("2nuwg8x40yrzdcvlntq3ljs4ge35ql")
+                .build()
+        }
+    }
 }
 
 

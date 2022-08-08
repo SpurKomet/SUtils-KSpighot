@@ -1,6 +1,5 @@
-package de.spurkomet.sutils.settings
+package de.spurkomet.sutils.settings.global
 
-import de.spurkomet.sutils.InternalMainClass
 import org.bukkit.World
 import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File
@@ -46,6 +45,7 @@ object settings {
     }
     object betterMinecraft{
         var mlgOnLeavs = true
+        var noCreeperBlockDamage = true
     }
     object generateWorld{
         var seed: Long = 0

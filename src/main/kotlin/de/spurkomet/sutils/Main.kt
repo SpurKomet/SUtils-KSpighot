@@ -1,12 +1,13 @@
-package net.spurkomet.sutils
+package de.spurkomet.sutils
 
-import net.spurkomet.sutils.listener.mainListener
+import de.spurkomet.sutils.listener.mainListener
 import net.axay.kspigot.chat.col
 import net.axay.kspigot.main.KSpigot
-import net.spurkomet.sutils.settings.Config
-import net.spurkomet.sutils.settings.settings
-import net.spurkomet.sutils.utils.Commands
-import net.spurkomet.sutils.utils.soupHealing
+import de.spurkomet.sutils.settings.global.Config
+import de.spurkomet.sutils.settings.global.settings
+import de.spurkomet.sutils.utils.Commands
+import de.spurkomet.sutils.utils.soupHealing
+import de.spurkomet.sutils.utils.world.leaveWaterLog
 
 class InternalMainClass : KSpigot() {
 
@@ -24,6 +25,7 @@ class InternalMainClass : KSpigot() {
         Commands()
         mainListener()
         soupHealing()
+        leaveWaterLog()
     }
 
     override fun shutdown() {

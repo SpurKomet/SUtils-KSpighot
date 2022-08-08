@@ -1,25 +1,22 @@
-package de.spurkomet.sutils.settings
+package de.spurkomet.sutils.settings.global
 
+import de.spurkomet.sutils.settings.global.settings.betterMinecraft.noCreeperBlockDamage
 import net.axay.kspigot.chat.col
-import net.axay.kspigot.extensions.broadcast
 import net.axay.kspigot.items.*
 import org.bukkit.Material
-import de.spurkomet.sutils.prefixs
-import de.spurkomet.sutils.settings.settings.damageIndicator
+import de.spurkomet.sutils.settings.global.settings.damageIndicator
 import net.kyori.adventure.text.Component
-import org.bukkit.enchantments.Enchantment
 import org.bukkit.inventory.ItemFlag
 import org.bukkit.inventory.ItemStack
-import de.spurkomet.sutils.settings.settings.timer.timer as timerTimer
-import de.spurkomet.sutils.settings.settings.timer.time.time as timerTime
-import de.spurkomet.sutils.settings.settings.timer.time.sec as timerSec
-import de.spurkomet.sutils.settings.settings.timer.time.min as timerMin
-import de.spurkomet.sutils.settings.settings.timer.time.h as timerH
-import de.spurkomet.sutils.settings.settings.timer.countdown as timerCountdown
-import de.spurkomet.sutils.settings.settings.soup.soup as soupSoup
-import de.spurkomet.sutils.settings.settings.soup.sateration as soupSaturation
-import de.spurkomet.sutils.settings.settings.soup.food as soupFood
-import de.spurkomet.sutils.settings.settings.soup.heal as soupHeal
+import de.spurkomet.sutils.settings.global.settings.timer.timer as timerTimer
+import de.spurkomet.sutils.settings.global.settings.timer.time.sec as timerSec
+import de.spurkomet.sutils.settings.global.settings.timer.time.min as timerMin
+import de.spurkomet.sutils.settings.global.settings.timer.time.h as timerH
+import de.spurkomet.sutils.settings.global.settings.timer.countdown as timerCountdown
+import de.spurkomet.sutils.settings.global.settings.soup.soup as soupSoup
+import de.spurkomet.sutils.settings.global.settings.soup.sateration as soupSaturation
+import de.spurkomet.sutils.settings.global.settings.soup.food as soupFood
+import de.spurkomet.sutils.settings.global.settings.soup.heal as soupHeal
 
 object SettingsDisplayItem {
     val back = itemStack(Material.IRON_SWORD) {
@@ -71,6 +68,20 @@ object SettingsDisplayItem {
                     name = Component.text("${col("gray")}Backpack Settings ${col("dark_green")}->")
                     flag(ItemFlag.HIDE_ATTRIBUTES)
                 }
+            }
+        }
+        fun noCreeper(): ItemStack = itemStack(Material.CREEPER_HEAD) {
+            amount = 1
+            meta {
+                name = Component.text("${col("gray")}Creeper Block Damage " +
+                        "${col("white")}[${
+                            if (!noCreeperBlockDamage) {
+                                "${col("green")}aktiv"
+                            } else {
+                                "${col("red")}deaktiv"
+                            }
+                        }${col("white")}]")
+                flag(ItemFlag.HIDE_ATTRIBUTES)
             }
         }
     }
