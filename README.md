@@ -1,9 +1,10 @@
 # SUtils
- Util Plugin for my private MC Servernetzwerk
+Util Plugin for my private Minecraft Server Network
 
-no Support!!!
+**NO SUPPORT!!!**
 
-Ich Release das Plugin, da ich keinen Grund dagegen sehe.
+Ich release das Plugin, da ich keinen Grund dagegen sehe.
 
 ---
+
 ab 1.20: besser gecodet (z.B. Settings GUI Manager) und mit SilkMC
