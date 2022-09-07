@@ -1,5 +1,5 @@
 # SUtils
-Util Plugin for my private Minecraft Server Network
+Util-Plugin for my private Minecraft server network
 
 **NO SUPPORT!!!**
 
